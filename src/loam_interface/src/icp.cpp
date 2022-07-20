@@ -118,14 +118,14 @@ void MapFilter::pc_cb(const sensor_msgs::PointCloud2 msg)
     pcl_ros::transformAsMatrix(tf_pose, pose_matrix);
     pcl::transformPointCloud(*pc, *pc, pose_matrix);
 
-    if(map->size()>0){
-        icp.setInputSource(pc);
-        icp.setInputTarget(map);
-        icp.align(*pc);
+    // if(map->size()>0){
+    //     icp.setInputSource(pc);
+    //     icp.setInputTarget(map);
+    //     icp.align(*pc);
 
-        cout << "ICP:------------" << endl;
-        cout << "has converged:" << icp.hasConverged() << " score: " << icp.getFitnessScore() << endl;
-    }
+    //     cout << "ICP:------------" << endl;
+    //     cout << "has converged:" << icp.hasConverged() << " score: " << icp.getFitnessScore() << endl;
+    // }
 
     if(flag) *map += *pc;
     passZ.filter(*map);
