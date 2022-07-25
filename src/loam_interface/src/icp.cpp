@@ -127,7 +127,8 @@ void MapFilter::pc_cb(const sensor_msgs::PointCloud2 msg)
     //     cout << "has converged:" << icp.hasConverged() << " score: " << icp.getFitnessScore() << endl;
     // }
 
-    if(flag) *map += *pc;
+    // if(flag) *map += *pc;
+    *map += *pc;
     passZ.filter(*map);
 
 
