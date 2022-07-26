@@ -5,7 +5,7 @@
 Clone this repo and checkout kl branch.
 
 ```
-git clone -b kl git@github.com:ARG-NCTU/autonomous_exploration_development_environment.git
+git clone git@github.com:ARG-NCTU/autonomous_exploration_development_environment.git
 ```
 
 ## Set up the Docker 
