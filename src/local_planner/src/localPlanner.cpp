@@ -207,24 +207,6 @@ void terrainCloudHandler(const sensor_msgs::PointCloud2ConstPtr& terrainCloud2)
   }
 }
 
-void stateHandler(const std_msgs::String::ConstPtr& str)
-{
-  if(str->data == "nav_door"){
-    goalX = 9.0;
-    goalY = 13.0;
-  }
-  else if(str->data == "nav_goal_1")
-  {
-    goalX = 10.25;
-    goalY = 8.52;
-  }
-  else if(str->data == "nav_goal_2")
-  {
-    goalX = 8.0;
-    goalY = 8.52;
-  }
-}
-
 void joystickHandler(const sensor_msgs::Joy::ConstPtr& joy)
 {
   joyTime = ros::Time::now().toSec();
@@ -583,8 +565,6 @@ int main(int argc, char** argv)
   ros::Subscriber subAddedObstacles = nh.subscribe<sensor_msgs::PointCloud2> ("/added_obstacles", 5, addedObstaclesHandler);
 
   ros::Subscriber subCheckObstacle = nh.subscribe<std_msgs::Bool> ("/check_obstacle", 5, checkObstacleHandler);
-
-  ros::Subscriber substate = nh.subscribe<std_msgs::String> ("/state", 5, stateHandler);
 
   ros::Publisher pubPath = nh.advertise<nav_msgs::Path> ("/path", 5);
   nav_msgs::Path path;

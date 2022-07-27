@@ -144,15 +144,7 @@ void pathHandler(const nav_msgs::Path::ConstPtr& pathIn)
 
 void stateHandler(const std_msgs::String::ConstPtr& str)
 {
-  if(str->data == "nav_door"){ 
-    cout << "switch to auto" << endl;
-    flag = 1;
-  }
-  else if(str->data == "nav_goal_1"){
-    cout << "switch to auto" << endl;
-    flag = 1;
-  }
-  else if(str->data == "nav_goal_2"){
+  else if(str->data == "nav"){
     cout << "switch to auto" << endl;
     flag = 1;
   }
