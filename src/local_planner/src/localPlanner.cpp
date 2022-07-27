@@ -254,6 +254,12 @@ void joystickHandler(const sensor_msgs::Joy::ConstPtr& joy)
   }
 }
 
+void roomgoal(const geometry_msgs::PoseStamped::ConstPtr& goal)
+{
+  goalX = goal->pose.position.x;
+  goalY = goal->pose.position.y;
+}
+
 void goalHandler(const geometry_msgs::PoseStamped::ConstPtr& goal)
 {
   goalX = goal->pose.position.x;
@@ -567,6 +573,8 @@ int main(int argc, char** argv)
   ros::Subscriber subJoystick = nh.subscribe<sensor_msgs::Joy> ("/joy", 5, joystickHandler);
 
   ros::Subscriber subGoal = nh.subscribe<geometry_msgs::PoseStamped> ("/move_base_simple/goal", 5, goalHandler);
+
+  ros::Subscriber roomGoal = nh.subscribe<geometry_msgs::PoseStamped> ("/tare/goal", 5, roomgoal);
 
   ros::Subscriber subSpeed = nh.subscribe<std_msgs::Float32> ("/speed", 5, speedHandler);
 
