@@ -2,7 +2,7 @@
 
 ## Clone repo
 
-Clone this repo and checkout kl branch.
+Clone this repo to run tare algorithm.
 
 ```
 git clone git@github.com:ARG-NCTU/autonomous_exploration_development_environment.git
@@ -39,3 +39,11 @@ The all required environment was organized, only need laptop or computer with GP
     ```
     source environment.sh
     ```
+
+## Download map
+
+Run the script to download experiment map.
+
+```
+python3 download_map.py
+```

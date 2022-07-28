@@ -1,8 +1,3 @@
-#!/usr/bin/env bash
-#
-# Typical usage: ./join.bash subt
-#
-
 IMG=argnctu/subt:tare
 
 xhost +
