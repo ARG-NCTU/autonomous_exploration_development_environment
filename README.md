@@ -39,11 +39,3 @@ The all required environment was organized, only need laptop or computer with GP
     ```
     source environment.sh
     ```
-
-## Download map
-
-Run the script to download experiment map.
-
-```
-python3 download_map.py
-```
