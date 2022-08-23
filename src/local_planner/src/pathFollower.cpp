@@ -98,6 +98,7 @@ bool flag = 0;
 bool now_is_this_car = 0;
 float manual_x = 0;
 float manual_z = 0;
+double speed = 1;
 
 nav_msgs::Path path;
 
@@ -289,6 +290,7 @@ int main(int argc, char** argv)
   nhPrivate.getParam("autonomySpeed", autonomySpeed);
   nhPrivate.getParam("joyToSpeedDelay", joyToSpeedDelay);
   nhPrivate.getParam("which_car", which_car);
+  nhPrivate.getParam("speed", speed);
 
   ros::Subscriber subOdom = nh.subscribe<nav_msgs::Odometry> ("state_estimation", 5, odomHandler);
 
@@ -412,8 +414,8 @@ int main(int argc, char** argv)
       if (pubSkipCount < 0) {
         // cmd_vel.header.stamp = ros::Time().fromSec(odomTime);
         if (fabs(vehicleSpeed) <= maxAccel / 100.0) cmd_vel.linear.x = 0;
-        else cmd_vel.linear.x = vehicleSpeed;
-        cmd_vel.angular.z = vehicleYawRate;
+        else cmd_vel.linear.x = vehicleSpeed*speed;
+        cmd_vel.angular.z = vehicleYawRate*speed;
         if(flag) pubSpeed.publish(cmd_vel);
         if ((!flag) && now_is_this_car){
           cmd_vel.linear.x = manual_x;

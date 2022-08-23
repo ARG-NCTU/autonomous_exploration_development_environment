@@ -1,5 +1,6 @@
 <launch>
-  <arg name="veh" default="robot1" />
+  <arg name="veh" default="robot3" />
+  <arg name="sp" default="1"/>
   <arg name="posestamp_topic" default="/$(arg veh)/truth_map_posestamped" />
   <arg name="point_topic" default="/$(arg veh)/map_part" />
   <arg name="cmd_velTopic" default="/$(arg veh)/husky_velocity_controller/cmd_vel"/>
@@ -17,6 +18,7 @@
       <arg name="cmd_velTopic" value="$(arg cmd_velTopic)" />
       <arg name="frame" value="$(arg veh)/base_link"/>
       <arg name="which_car" value="$(arg veh)"/>
+      <arg name="speed" value="$(arg sp)"/>
     </include>
 
     <include file="$(find terrain_analysis)/launch/terrain_analysis.launch" />

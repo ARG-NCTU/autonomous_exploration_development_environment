@@ -13,6 +13,7 @@
   <arg name="cmd_velTopic" default="/robot/husky_velocity_controller/cmd_vel"/>
   <arg name="frame" default="robot/base_link"/>
   <arg name="which_car"/>
+  <arg name="speed"/>
 
   <node pkg="local_planner" type="localPlanner" name="localPlanner" output="screen" required="true">
     <param name="pathFolder" type="string" value="$(find local_planner)/paths" />
@@ -89,6 +90,7 @@
     <param name="joyToSpeedDelay" value="$(arg joyToSpeedDelay)" />
 
     <param name="which_car" value="$(arg which_car)" />
+    <param name="speed" value="$(arg speed)" />
   </node>
 
   <node pkg="tf" type="static_transform_publisher" name="vehicleTransPublisher" args="-$(arg sensorOffsetX) -$(arg sensorOffsetY) 0 0 0 0 /sensor /vehicle 1000"/>
