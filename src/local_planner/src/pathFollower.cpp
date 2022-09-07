@@ -176,7 +176,7 @@ void vrjoystickHandler(const std_msgs::Float32MultiArray::ConstPtr& joy)
   }
 
   if(!flag){
-    manual_x = joy->data[1];
+    manual_x = joy->data[1]*1.2;
     manual_z = -joy->data[0];
     // cout<<which_car<<" manual "<<cmd_vel.linear.x<<","<<cmd_vel.angular.z<<endl;
   }
